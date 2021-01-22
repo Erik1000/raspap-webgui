@@ -46,6 +46,7 @@ require_once 'includes/data_usage.php';
 require_once 'includes/about.php';
 require_once 'includes/openvpn.php';
 require_once 'includes/torproxy.php';
+require_once 'includes/airplay.php';
 
 $output = $return = 0;
 $page = $_GET['page'];
@@ -190,6 +191,10 @@ $bridgedEnabled = getBridgedState();
          <li class="nav-item">
           <a class="nav-link" href="index.php?page=about"><i class="fas fa-info-circle fa-fw mr-2"></i><span class="nav-label"><?php echo _("About RaspAP"); ?></a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link" href="index.php?page=airplay"><i class="fas fa-info-circle fa-fw mr-2"></i><span class="nav-label">AirPlay</a>
+        </li>
+        
         <!-- Divider -->
         <hr class="sidebar-divider d-none d-md-block">
 
@@ -274,6 +279,8 @@ $bridgedEnabled = getBridgedState();
         case "about":
             DisplayAbout();
             break;
+        case "airplay":
+            DisplayAirplay();
         default:
             DisplayDashboard($extraFooterScripts);
         }
