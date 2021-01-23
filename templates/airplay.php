@@ -14,11 +14,21 @@
             <?php echo CSRFTokenFieldTag() ?>
           <div class="row">
             <div class="form-group col-md-6">
-              <label for="username"><?php echo _("Username"); ?></label>
-              <input type="text" class="form-control" name="username" value="<?php echo htmlspecialchars($username, ENT_QUOTES); ?>"/>
+            <label for="audio-outpu">Audio via</label>
+              <div class="o-switch btn-group" id="audio-output" data-toggle="buttons" role="group">
+                <label class="btn btn-secondary active">
+                  <input type="radio" name="options" id="hdmi" autocomplete="off" checked>HDMI
+                </label>
+                <label class="btn btn-secondary">
+                  <input type="radio" name="options" id="analog" autocomplete="off">Analog
+                </label>
+                <label class="btn btn-secondary">
+                  <input type="radio" name="options" id="none" autocomplete="off">None (disabled)
+                </label>
+              </div>
             </div>
           </div>
-          <input type="submit" class="btn btn-outline btn-primary" name="UpdateAdminPassword" value="Start" />
+          <input type="submit" class="btn btn-outline btn-primary" name="startAirplay" value="Start Airplay Server" />
         </form>
       </div><!-- /.card-body -->
       <div class="card-footer"></div>
