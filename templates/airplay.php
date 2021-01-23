@@ -21,19 +21,49 @@
             <div class="tab-content">
                   <div class="form-group">
                     <label for="audiotype">Send audio via:</label>
-                    <select class="form-control" name="interface" id="audiotype">
+                    <select class="form-control" name="audiotype" id="audiotype" aria-describedby="audiotype-description">
                       <option value="hdmi" selected="selected">HDMI</option>
                       <option value="analog">Analog</option>
                       <option value="none">None (disabled)</option>
                     </select>
+                    <p class="mb-0" id="audiotype-description">
+                      <small>If you select "disabled", it won't output anything but you still have to change the audio output on the client device.</small>
+                    </p>
                   </div>
                   <div class="form-group">
+                    <label for="blackscreen">Display black screen:</label>
+                    <select class="form-control" name="blackscreen" id="blackscreen">
+                      <option value="auto" selected="selected">during active connection</option>
+                      <option value="always">always</option>
+                      <option value="never">never</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <label for="rotate">Rotate screen by:</label>
+                    <select class="form-control" name="rotate" id="rotate">
+                      <option value="0" selected="selected">0°</option>
+                      <option value="90">90°</option>
+                      <option value="180">180°</option>
+                      <option value="270">270°</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <label for="flipscreen">Flip screen:</label>
+                    <select class="form-control" name="flipscreen" id="flipscreen">
+                      <option value="no" selected="selected">no</option>
+                      <option value="horiz">horizontal</option>
+                      <option value="vert">vertical</option>
+                      <option value="both">both</option>
+                    </select>
+                  </div>
+                  
+                  <div class="form-group">
                     <div class="custom-control custom-switch">
-                      <input class="custom-control-input" id="chkfallback" type="checkbox" name="Fallback" value="1" aria-describedby="fallback-description">
-                      <label class="custom-control-label" for="chkfallback">Use low latency mode</label>
+                      <input class="custom-control-input" id="chklowlatencymode" type="checkbox" name="lowlatencymode" value="1" aria-describedby="lowlatencymode-description">
+                      <label class="custom-control-label" for="chklowlatencymode">Use low latency mode</label>
                     </div>
-                    <p class="mb-0" id="fallback-description">
-                      <small>Add this later</small>
+                    <p class="mb-0" id="lowlatencymode-description">
+                      <small>This mode is good for screen sharing, but movies may be blurry.</small>
                     </p>
                   </div>
                   <input type="submit" class="btn btn-success" name="startAirplayServer" value="Start Airplay server" />
