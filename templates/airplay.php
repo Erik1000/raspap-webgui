@@ -15,17 +15,20 @@
           </div><!-- /.row -->
         </div><!-- /.card-header -->
         <div class="card-body">
-          <form role="form" action="?page=openvpn_conf" enctype="multipart/form-data" method="POST">
+          <form role="form" action="?page=airplay" enctype="multipart/form-data" method="POST">
             <?php echo CSRFTokenFieldTag() ?>
             <!-- Tab panes -->
             <div class="tab-content">
-                  <div class="form-group col-md-6">
-                    <label for="cbxinterface">Send audio via:</label>
-                    <select class="form-control" name="interface" id="cbxinterface">
+                  <div class="form-group">
+                    <label for="audiotype">Send audio via:</label>
+                    <select class="form-control" name="interface" id="audiotype">
                       <option value="hdmi" selected="selected">HDMI</option>
                       <option value="analog">Analog</option>
                       <option value="none">None (disabled)</option>
                     </select>
+                  </div>
+                  <div class="checkbox">
+                    <label><input type="checkbox" name="lowlatency mode" value="">Enable low latency mode</label>
                   </div>
                   <input type="submit" class="btn btn-success" name="startAirplayServer" value="Start Airplay server" />
                   <input type="submit" class="btn btn-danger" name="stopAirplayServer" value="Stop Airplay server" />
