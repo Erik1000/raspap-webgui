@@ -4,7 +4,7 @@
         <div class="card-header">
           <div class="row">
             <div class="col">
-              <i class="fas fa-key fa-fw mr-2"></i>AirPlay
+              <i class="fas fa-film fa-fw mr-2"></i>AirPlay
             </div>
             <div class="col">
               <button class="btn btn-light btn-icon-split btn-sm service-status float-right">
@@ -19,9 +19,8 @@
             <?php echo CSRFTokenFieldTag() ?>
             <!-- Tab panes -->
             <div class="tab-content">
-                  <input type="submit" class="btn btn-outline btn-primary" name="SaveOpenVPNSettings" value="Save settings" />
-                  <input type="submit" class="btn btn-success" name="StartOpenVPN" value="Start OpenVPN" />
-                  <input type="submit" class="btn btn-warning" name="StopOpenVPN" value="Stop OpenVPN" />
+                  <input type="submit" class="btn btn-outline btn-primary" name="startAirplayServer" value="Start Airplay server" />
+                  <input type="submit" class="btn btn-success" name="stopAirplayServer" value="Start OpenVPN" />
               </form>
             </div>
         </div><!-- /.card-body -->

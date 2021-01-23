@@ -188,11 +188,11 @@ $bridgedEnabled = getBridgedState();
           <a class="nav-link" href="index.php?page=system_info"><i class="fas fa-cube fa-fw mr-2"></i><span class="nav-label"><?php echo _("System"); ?></a>
           </li>
             <?php endif; ?>
+            <li class="nav-item">
+          <a class="nav-link" href="index.php?page=airplay"><i class="fas fa-film fa-fw mr-2"></i><span class="nav-label">AirPlay</a>
+        </li>
          <li class="nav-item">
           <a class="nav-link" href="index.php?page=about"><i class="fas fa-info-circle fa-fw mr-2"></i><span class="nav-label"><?php echo _("About RaspAP"); ?></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="index.php?page=airplay"><i class="fas fa-info-circle fa-fw mr-2"></i><span class="nav-label">AirPlay</a>
         </li>
         
         <!-- Divider -->
