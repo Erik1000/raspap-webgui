@@ -27,8 +27,14 @@
                       <option value="none">None (disabled)</option>
                     </select>
                   </div>
-                  <div class="checkbox">
-                    <label><input type="checkbox" name="lowlatency mode" value="">Enable low latency mode</label>
+                  <div class="form-group">
+                    <div class="custom-control custom-switch">
+                      <input class="custom-control-input" id="chkfallback" type="checkbox" name="Fallback" value="1" aria-describedby="fallback-description">
+                      <label class="custom-control-label" for="chkfallback">Use low latency mode</label>
+                    </div>
+                    <p class="mb-0" id="fallback-description">
+                      <small>Add this later</small>
+                    </p>
                   </div>
                   <input type="submit" class="btn btn-success" name="startAirplayServer" value="Start Airplay server" />
                   <input type="submit" class="btn btn-danger" name="stopAirplayServer" value="Stop Airplay server" />
