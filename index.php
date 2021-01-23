@@ -281,6 +281,7 @@ $bridgedEnabled = getBridgedState();
             break;
         case "airplay":
             DisplayAirplay();
+            break;
         default:
             DisplayDashboard($extraFooterScripts);
         }
