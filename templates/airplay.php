@@ -19,8 +19,20 @@
             <?php echo CSRFTokenFieldTag() ?>
             <!-- Tab panes -->
             <div class="tab-content">
-                  <input type="submit" class="btn btn-outline btn-primary" name="startAirplayServer" value="Start Airplay server" />
+                  <input type="submit" class="btn btn-success" name="startAirplayServer" value="Start Airplay server" />
                   <input type="submit" class="btn btn-success" name="stopAirplayServer" value="Start OpenVPN" />
+                  <label for="audiotype" class="form-control-label col-md-3 col-8">Send audio via</label>
+                  <div class="o-switch btn-group" id="audiotype" data-toggle="buttons" role="group">
+                    <label class="btn btn-secondary active">
+                      <input type="radio" name="options" id="option1" autocomplete="off" checked>HDMI
+                    </label>
+                    <label class="btn btn-secondary">
+                      <input type="radio" name="options" id="option2" autocomplete="off">Analog
+                    </label>
+                    <label class="btn btn-secondary">
+                      <input type="radio" name="options" id="option3" autocomplete="off">None (disabled)
+                    </label>
+                </div>
               </form>
             </div>
         </div><!-- /.card-body -->
