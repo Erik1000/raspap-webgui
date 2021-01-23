@@ -20,15 +20,9 @@
             <?php echo CSRFTokenFieldTag() ?>
             <!-- Tab panes -->
             <div class="tab-content">
-              <?php if (!RASPI_MONITOR_ENABLED) : ?>
                   <input type="submit" class="btn btn-outline btn-primary" name="SaveOpenVPNSettings" value="Save settings" />
-                  <?php if ($openvpnstatus[0] == 0) {
-                      echo '<input type="submit" class="btn btn-success" name="StartOpenVPN" value="Start OpenVPN" />' , PHP_EOL;
-                    } else {
-                      echo '<input type="submit" class="btn btn-warning" name="StopOpenVPN" value="Stop OpenVPN" />' , PHP_EOL;
-                    }
-                  ?>
-              <?php endif ?>
+                  <input type="submit" class="btn btn-success" name="StartOpenVPN" value="Start OpenVPN" />
+                  <input type="submit" class="btn btn-warning" name="StopOpenVPN" value="Stop OpenVPN" />
               </form>
             </div>
         </div><!-- /.card-body -->
