@@ -12,8 +12,6 @@ require_once 'includes/wifi_functions.php';
 function DisplayAirplay()
 {
     echo renderTemplate(
-        "airplay", compact(
-            
-        )
+        "airplay"
     );
 }
