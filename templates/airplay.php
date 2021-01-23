@@ -8,23 +8,25 @@
             </div>
             <div class="col">
               <button class="btn btn-light btn-icon-split btn-sm service-status float-right">
-                <span class="icon text-gray-600"><i class="fas fa-circle service-status-down"></i></span>
-                <span class="text service-status">airplay server up/down add here</span>
+                <span class="icon text-gray-600"><i class="fas fa-circle service-status-<?php echo $serviceStatus ?>"></i></span>
+                <span class="text service-status">airplay server <?php echo _($serviceStatus) ?></span>
               </button>
             </div>
           </div><!-- /.row -->
         </div><!-- /.card-header -->
         <div class="card-body">
+        <?php $status->showMessages(); ?>
           <form role="form" action="?page=airplay" enctype="multipart/form-data" method="POST">
             <?php echo CSRFTokenFieldTag() ?>
             <!-- Tab panes -->
             <div class="tab-content">
+            <?php if ($airplaystatus[0] == 0) { ?>
                   <div class="form-group">
                     <label for="audiotype">Send audio via:</label>
                     <select class="form-control" name="audiotype" id="audiotype" aria-describedby="audiotype-description">
                       <option value="hdmi" selected="selected">HDMI</option>
-                      <option value="analog">Analog</option>
-                      <option value="none">None (disabled)</option>
+                      <option value="analog">analog</option>
+                      <option value="none">disabled</option>
                     </select>
                     <p class="mb-0" id="audiotype-description">
                       <small>If you select "disabled", it won't output anything but you still have to change the audio output on the client device.</small>
@@ -61,13 +63,17 @@
                     <div class="custom-control custom-switch">
                       <input class="custom-control-input" id="chklowlatencymode" type="checkbox" name="lowlatencymode" value="1" aria-describedby="lowlatencymode-description">
                       <label class="custom-control-label" for="chklowlatencymode">Use low latency mode</label>
-                    </div>
+                    </div>s
                     <p class="mb-0" id="lowlatencymode-description">
-                      <small>This mode is good for screen sharing, but movies may be blurry.</small>
+                      <small>This mode is good for screen sharing but movies may be blurry.</small>
                     </p>
                   </div>
                   <input type="submit" class="btn btn-success" name="startAirplayServer" value="Start Airplay server" />
-                  <input type="submit" class="btn btn-danger" name="stopAirplayServer" value="Stop Airplay server" />
+            <?php
+            } else {
+              echo '<input type="submit" class="btn btn-danger" name="stopAirplayServer" value="Stop Airplay server" />';
+            }
+            ?>
               </form>
             </div>
         </div><!-- /.card-body -->
@@ -75,4 +81,3 @@
   </div><!-- /.card -->
 </div><!-- /.col-lg-12 -->
 </div><!-- /.row -->
-
