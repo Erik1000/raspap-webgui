@@ -15,7 +15,7 @@ function DisplayAirplay()
 
     if (!RASPI_MONITOR_ENABLED) {
         if (isset($_POST["stopAirplayServer"])) {
-            if ($killable) {
+            if ($killable == 0) {
                 exec("sudo /bin/kill $airplaypid", $return, $code);
                 $status->addMessage("Stopped the airplay server with pid $airplaypid (returned $code)", 'info');
                 foreach ($return as $line) {
