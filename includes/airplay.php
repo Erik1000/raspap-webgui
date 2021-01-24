@@ -10,10 +10,9 @@ require_once 'includes/config.php';
  */
 function DisplayAirplay()
 {
-    if ($_SERVER["REQUEST_METHOD"] == "GET") {
-        $status = new StatusMessages();
-        exec('pidof rpiplay', $airplaypid, $killable);
-    } elseif ($_SERVER["REQUEST_METHOD" == "POST"]) {
+    $status = new StatusMessages();
+    exec('pidof rpiplay', $airplaypid, $killable);
+    if ($_SERVER["REQUEST_METHOD" == "POST"]) {
         if (!RASPI_MONITOR_ENABLED) {
             if (isset($_POST["stopAirplayServer"])) {
                 if ($killable == 0) {
