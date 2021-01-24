@@ -20,7 +20,7 @@
             <?php echo CSRFTokenFieldTag() ?>
             <!-- Tab panes -->
             <div class="tab-content">
-            <?php if ($airplaystatus[0] == 0) { ?>
+            <?php if ($killable) { ?>
                   <div class="form-group">
                     <label for="audiotype">Send audio via:</label>
                     <select class="form-control" name="audiotype" id="audiotype" aria-describedby="audiotype-description">
@@ -63,7 +63,7 @@
                     <div class="custom-control custom-switch">
                       <input class="custom-control-input" id="chklowlatencymode" type="checkbox" name="lowlatencymode" value="1" aria-describedby="lowlatencymode-description">
                       <label class="custom-control-label" for="chklowlatencymode">Use low latency mode</label>
-                    </div>s
+                    </div>
                     <p class="mb-0" id="lowlatencymode-description">
                       <small>This mode is good for screen sharing but movies may be blurry.</small>
                     </p>
@@ -72,6 +72,9 @@
             <?php
             } else {
               echo '<input type="submit" class="btn btn-danger" name="stopAirplayServer" value="Stop Airplay server" />';
+            }
+            if ($killable) {
+              echo '<input type="submit" class="btn btn-danger" name="killAirplayServer" value="Kill Airplay server (sigkill)" />';
             }
             ?>
               </form>

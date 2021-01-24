@@ -11,38 +11,31 @@ require_once 'includes/config.php';
 function DisplayAirplay()
 {
     $status = new StatusMessages();
-    exec('pidof rpiplay | wc -l', $airplaystatus);
+    exec('pidof rpiplay', $airplaypid, $killable);
 
     if (!RASPI_MONITOR_ENABLED) {
-        if (isset($_POST['SaveOpenVPNSettings'])) {
-            if (isset($_POST['authUser'])) {
+        if (isset($_POST["stopAirplayServer"])) {
+            if ($killable) {
+                exec("kill $airplaypid", $n, $s);
+                $status->addMessage($n, 'info');
+                $status->addMessage("Stopped the airplay server with pid $airplaypid ($s)", 'info');
             }
-            if (isset($_POST['authPassword'])) {
-                $authPassword = strip_tags(trim($_POST['authPassword']));
-            }
-            $return = SaveOpenVPNConfig($status, $_FILES['customFile'], $authUser, $authPassword);
-        } elseif (isset($_POST['StartOpenVPN'])) {
-            $status->addMessage('Attempting to start OpenVPN', 'info');
-            exec('sudo /bin/systemctl start openvpn-client@client', $return);
-            exec('sudo /bin/systemctl enable openvpn-client@client', $return);
-            foreach ($return as $line) {
-                $status->addMessage($line, 'info');
-            }
-        } elseif (isset($_POST['StopOpenVPN'])) {
-            $status->addMessage('Attempting to stop OpenVPN', 'info');
-            exec('sudo /bin/systemctl stop openvpn-client@client', $return);
-            exec('sudo /bin/systemctl disable openvpn-client@client', $return);
-            foreach ($return as $line) {
-                $status->addMessage($line, 'info');
-            }
+        } elseif (isset($_POST["killAirplayServer"])) {
+            exec("kill -SIGKILL $airplaypid", $n, $s);
+            $status->addMessage($n, 'info');
+            $status->addMessage("Killed the airplay server with pid $airplaypid ($s)", 'danger');
+
+        } elseif (isset($_POST["startAirplayServer"])) {
+            echo "TODO";
         }
     }
-    $serviceStatus = $airplaystatus[0] == 0 ? "down" : "up";
+
+    $serviceStatus = $killable ? "up" : "down";
     echo renderTemplate(
         "airplay", compact(
             "status",
             "serviceStatus",
-            "airplaystatus"
+            "killable"
         )
     );
 }
