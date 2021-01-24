@@ -84,7 +84,7 @@
               </form>
             </div>
         </div><!-- /.card-body -->
-    <div class="card-footer"> Changed by Erik1000</div>
+    <div class="card-footer">Changed by <a href="https://github.com/Erik1000">Erik1000</a></div>
   </div><!-- /.card -->
 </div><!-- /.col-lg-12 -->
 </div><!-- /.row -->
