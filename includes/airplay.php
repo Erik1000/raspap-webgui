@@ -16,13 +16,18 @@ function DisplayAirplay()
     if (!RASPI_MONITOR_ENABLED) {
         if (isset($_POST["stopAirplayServer"])) {
             if ($killable) {
-                exec("kill $airplaypid", $n, $s);
-                $status->addMessage("Stopped the airplay server with pid $airplaypid[0] ($s)", 'info');
+                exec("sudo /bin/kill $airplaypid", $return, $code);
+                $status->addMessage("Stopped the airplay server with pid $airplaypid (returned $code)", 'info');
+                foreach ($return as $line) {
+                    $status->addMessage($line, 'info');
+                }
             }
         } elseif (isset($_POST["killAirplayServer"])) {
-            exec("kill -SIGKILL $airplaypid", $n, $s);
-            $status->addMessage("Killed the airplay server with pid $airplaypid[0] ($s)", 'danger');
-
+            exec("sudo /bin/kill -SIGKILL $airplaypid", $return, $s);
+            $status->addMessage("Killed the airplay server with pid $airplaypid (returned $code)", 'danger');
+            foreach ($return as $line) {
+                $status->addMessage($line, 'info');
+            }
         } elseif (isset($_POST["startAirplayServer"])) {
             echo "TODO";
         }
