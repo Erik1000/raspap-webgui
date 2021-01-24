@@ -21,15 +21,17 @@ function DisplayAirplay()
                     $status->addMessage($line, 'info');
                 }
                 header("refresh: 0");
+                return()
             }
         } elseif (isset($_POST["killAirplayServer"])) {
             if ($killable == 0) {
-                exec("sudo /usr/local/bin/kill_rpiplay.sh", $return, $s);
+                exec("sudo /usr/local/bin/kill_rpiplay.sh", $return, $code);
                 $status->addMessage("Killed the airplay server ($code).", 'success');
                 foreach ($return as $line) {
                     $status->addMessage($line, 'info');
                 }
                 header("refresh: 0"); 
+                return()
             }
         } elseif (isset($_POST["startAirplayServer"])) {
             if ($killable != 0) {
@@ -39,6 +41,7 @@ function DisplayAirplay()
                     $status->addMessage($line, 'info');
                 }
                 header("refresh: 0"); 
+                return()
             }
         }
     }
