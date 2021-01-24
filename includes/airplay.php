@@ -21,7 +21,7 @@ function DisplayAirplay()
                     $status->addMessage($line, 'info');
                 }
                 header("refresh: 0");
-                return()
+                return;
             }
         } elseif (isset($_POST["killAirplayServer"])) {
             if ($killable == 0) {
@@ -31,7 +31,7 @@ function DisplayAirplay()
                     $status->addMessage($line, 'info');
                 }
                 header("refresh: 0"); 
-                return()
+                return;
             }
         } elseif (isset($_POST["startAirplayServer"])) {
             if ($killable != 0) {
@@ -41,7 +41,7 @@ function DisplayAirplay()
                     $status->addMessage($line, 'info');
                 }
                 header("refresh: 0"); 
-                return()
+                return;
             }
         }
     }
