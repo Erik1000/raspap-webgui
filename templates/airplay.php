@@ -22,11 +22,15 @@
             <div class="tab-content">
             <?php if ($killable == 1) { ?>
                   <div class="form-group">
+                    <label for="displayname">Name:</label>
+                    <input type="text" class="form-control" id="displayname" name="displayname" value="Raspberry Pi" /> 
+                  </div>
+                  <div class="form-group">
                     <label for="audiotype">Send audio via:</label>
                     <select class="form-control" name="audiotype" id="audiotype" aria-describedby="audiotype-description">
                       <option value="hdmi" selected="selected">HDMI</option>
                       <option value="analog">analog</option>
-                      <option value="none">disabled</option>
+                      <option value="off">disabled</option>
                     </select>
                     <p class="mb-0" id="audiotype-description">
                       <small>If you select "disabled", it won't output anything but you still have to change the audio output on the client device.</small>
