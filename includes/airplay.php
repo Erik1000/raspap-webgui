@@ -17,7 +17,7 @@ function DisplayAirplay()
         if (isset($_POST["stopAirplayServer"])) {
             if ($killable == 0) {
                 exec("sudo /bin/kill $airplaypid", $return, $code);
-                $status->addMessage("Stopped the airplay server with pid $airplaypid (returned $code)", 'info');
+                $status->addMessage("Stopped the airplay server with pid $airplaypid (returned $code)", 'success');
                 foreach ($return as $line) {
                     $status->addMessage($line, 'info');
                 }
@@ -29,7 +29,11 @@ function DisplayAirplay()
                 $status->addMessage($line, 'info');
             }
         } elseif (isset($_POST["startAirplayServer"])) {
-            exec_background("/usr/local/bin/rpiplay -b on");
+            exec("/usr/local/bin/rpiplay -b on > /dev/null 2>/dev/null &", $return, $code);
+            $status->addMessage("Started Airplay server. (returned $code)", "success");
+            foreach ($return as $line) {
+                $status->addMessage($line, 'info');
+            }
         }
     }
 
