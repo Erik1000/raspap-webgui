@@ -20,7 +20,7 @@
             <?php echo CSRFTokenFieldTag() ?>
             <!-- Tab panes -->
             <div class="tab-content">
-            <?php if ($killable) { ?>
+            <?php if ($killable == 1) { ?>
                   <div class="form-group">
                     <label for="audiotype">Send audio via:</label>
                     <select class="form-control" name="audiotype" id="audiotype" aria-describedby="audiotype-description">
@@ -73,7 +73,7 @@
             } else {
               echo '<input type="submit" class="btn btn-danger" name="stopAirplayServer" value="Stop Airplay server" />';
             }
-            if ($killable) {
+            if ($killable == 0) {
               echo '<input type="submit" class="btn btn-danger" name="killAirplayServer" value="Kill Airplay server (sigkill)" />';
             }
             ?>

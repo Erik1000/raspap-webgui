@@ -30,7 +30,7 @@ function DisplayAirplay()
         }
     }
 
-    $serviceStatus = $killable ? "up" : "down";
+    $serviceStatus = $killable == 0 ? "up" : "down";
     echo renderTemplate(
         "airplay", compact(
             "status",
