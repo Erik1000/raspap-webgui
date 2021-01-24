@@ -29,7 +29,7 @@ function DisplayAirplay()
                 $status->addMessage($line, 'info');
             }
         } elseif (isset($_POST["startAirplayServer"])) {
-            echo "TODO";
+            exec_background("/usr/local/bin/rpiplay -b on");
         }
     }
 
