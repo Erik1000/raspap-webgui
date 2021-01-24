@@ -24,6 +24,8 @@ and a second script called `stop_rpiplay.sh` also in `/usr/local/` with the foll
 /bin/kill $(pidof rpiplay)
 ```
 
+Use `chmod +x` to make the files executable.
+
 Then use `visudo` to edit the sudoers file.
 Add the following:
 
