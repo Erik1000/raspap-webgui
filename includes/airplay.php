@@ -31,7 +31,7 @@ function DisplayAirplay()
                     foreach ($return as $line) {
                         $status->addMessage($line, 'info');
                     }
-                    $killable = 1
+                    $killable = 1;
                 }
             } elseif (isset($_POST["startAirplayServer"])) {
                 if ($killable != 0) {
