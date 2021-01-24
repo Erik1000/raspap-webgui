@@ -75,10 +75,10 @@
                   <input type="submit" class="btn btn-success" name="startAirplayServer" value="Start Airplay server" />
             <?php
             } else {
-              echo '<input type="submit" class="btn btn-danger" name="stopAirplayServer" value="Stop Airplay server" />';
+              echo '<input type="submit" class="btn btn-danger" name="stopAirplayServer" value="Stop Airplay server" />', PHP_EOL;
             }
             if ($killable == 0) {
-              echo '<input type="submit" class="btn btn-danger" name="killAirplayServer" value="Kill Airplay server (sigkill)" />';
+              echo '<input type="submit" class="btn btn-danger" name="killAirplayServer" value="Kill Airplay server (sigkill)" />', PHP_EOL;
             }
             ?>
               </form>
