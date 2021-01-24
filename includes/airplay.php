@@ -11,36 +11,38 @@ require_once 'includes/config.php';
 function DisplayAirplay()
 {
     $status = new StatusMessages();
-    exec('pidof rpiplay', $airplaypid, $running);
+    exec('pidof rpiplay', $airplaypid, $killable);
     if (!RASPI_MONITOR_ENABLED) {
         if (isset($_POST["stopAirplayServer"])) {
-            if ($running == 0) {
+            if ($killable == 0) {
                 exec("sudo /usr/local/bin/stop_rpiplay.sh", $return, $code);
                 $status->addMessage("Stopped the airplay server ($code).", 'success');
                 foreach ($return as $line) {
                     $status->addMessage($line, 'info');
                 }
+                header("refresh: 0");
             }
         } elseif (isset($_POST["killAirplayServer"])) {
-            if ($running == 0) {
+            if ($killable == 0) {
                 exec("sudo /usr/local/bin/kill_rpiplay.sh", $return, $s);
                 $status->addMessage("Killed the airplay server ($code).", 'success');
                 foreach ($return as $line) {
                     $status->addMessage($line, 'info');
                 }
+                header("refresh: 0"); 
             }
         } elseif (isset($_POST["startAirplayServer"])) {
-            if ($running != 0) {
+            if ($killable != 0) {
                 exec("sudo /usr/local/bin/rpiplay -b on > /dev/null 2>/dev/null &", $return, $code);
                 $status->addMessage("Started Airplay server. (returned $code)", "success");
                 foreach ($return as $line) {
                     $status->addMessage($line, 'info');
                 }
+                header("refresh: 0"); 
             }
         }
     }
-    exec('pidof rpiplay', $airplaypid, $killable);
-    
+
     $serviceStatus = $killable == 0 ? "up" : "down";
     echo renderTemplate(
         "airplay", compact(
