@@ -40,8 +40,8 @@
                     <label for="blackscreen">Display black screen:</label>
                     <select class="form-control" name="blackscreen" id="blackscreen">
                       <option value="auto" selected="selected">during active connection</option>
-                      <option value="always">always</option>
-                      <option value="never">never</option>
+                      <option value="on">always</option>
+                      <option value="off">never</option>
                     </select>
                   </div>
                   <div class="form-group">
