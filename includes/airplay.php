@@ -17,13 +17,11 @@ function DisplayAirplay()
         if (isset($_POST["stopAirplayServer"])) {
             if ($killable) {
                 exec("kill $airplaypid", $n, $s);
-                $status->addMessage($n, 'info');
-                $status->addMessage("Stopped the airplay server with pid $airplaypid ($s)", 'info');
+                $status->addMessage("Stopped the airplay server with pid $airplaypid[0] ($s)", 'info');
             }
         } elseif (isset($_POST["killAirplayServer"])) {
             exec("kill -SIGKILL $airplaypid", $n, $s);
-            $status->addMessage($n, 'info');
-            $status->addMessage("Killed the airplay server with pid $airplaypid ($s)", 'danger');
+            $status->addMessage("Killed the airplay server with pid $airplaypid[0] ($s)", 'danger');
 
         } elseif (isset($_POST["startAirplayServer"])) {
             echo "TODO";
